@@ -13,6 +13,8 @@ const app = express();
 app.use(express.json());
 app.use(corsConfig);
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.use("/api/auth", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api/admin", authenticateUser, authorizeAdmin, adminRoutes);
